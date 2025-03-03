@@ -1,0 +1,66 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+:root {
+  --primary-color: #ffffff;
+  --secondary-color: rgba(255, 255, 255, 0.8);
+  --background-overlay: rgba(0, 0, 0, 0.3);
+  --background-image: url('https://images.unsplash.com/photo-1519681393784-d120267933ba');
+  --overlay-gradient: linear-gradient(180deg, rgba(128, 91, 143, 0.6) 0%, rgba(53, 92, 125, 0.8) 100%);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+body {
+  background-image: var(--background-image);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: var(--primary-color);
+  position: relative;
+  transition: background-image 1s ease-in-out;
+  will-change: background-image;
+}
+
+body::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: var(--overlay-gradient);
+  z-index: -1;
+  transition: background 1s ease-in-out;
+  will-change: background;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  border-radius: 999px;
+  padding: 8px 16px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+button {
+  cursor: pointer;
+  border: none;
+  border-radius: 999px;
+  padding: 8px 16px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+button:hover {
+  opacity: 0.9;
+}

@@ -1,0 +1,236 @@
+.app-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 100vh;
+  padding: 2rem;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.logo {
+  font-size: 2.5rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+.subtitle {
+  font-size: 0.8rem;
+  letter-spacing: 2px;
+  opacity: 0.8;
+}
+
+.main-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex-grow: 1;
+}
+
+.timer-controls {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 2rem;
+}
+
+.mode-btn {
+  background-color: transparent;
+  color: var(--primary-color);
+  padding: 8px 16px;
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  font-weight: 600;
+  opacity: 1;
+}
+
+.mode-btn.active {
+  background-color: white;
+  color: #333;
+  border: 2px solid white;
+  font-weight: 700;
+}
+
+.timer-display {
+  font-size: 8rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+}
+
+.action-controls {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.primary-btn {
+  background-color: white;
+  color: #333;
+  padding: 10px 30px;
+  font-size: 1rem;
+}
+
+.icon-btn {
+  background-color: rgba(255, 255, 255, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+}
+
+.icon-btn img {
+  width: 20px;
+  height: 20px;
+}
+
+.footer {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.discord-invite {
+  margin-bottom: 1rem;
+}
+
+.discord-btn {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background-color: #5865F2;
+  color: white;
+  padding: 8px 16px;
+  border-radius: 4px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.music-player {
+  display: flex;
+  justify-content: space-between;
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 8px;
+  padding: 0.5rem;
+  width: 100%;
+  max-width: 350px;
+}
+
+.music-info {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.album-art {
+  width: 40px;
+  height: 40px;
+  background-color: #333;
+  border-radius: 4px;
+}
+
+.track-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.track-name {
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.artist-name {
+  font-size: 0.8rem;
+  opacity: 0.8;
+}
+
+.player-controls {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.player-btn {
+  background: transparent;
+  color: white;
+  padding: 4px;
+  font-size: 0.8rem;
+}
+
+.preview {
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 4px;
+}
+
+.fullscreen-btn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.7);
+  color: white;
+  width: 40px;
+  height: 40px;
+  border-radius: 6px;
+  z-index: 100;
+  cursor: pointer;
+  border: none;
+  transition: all 0.3s ease;
+}
+
+.fullscreen-btn:hover {
+  background-color: rgba(0, 0, 0, 0.9);
+}
+
+/* Remove the following classes as we're using native browser tooltip */
+.fullscreen-text {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .fullscreen-btn {
+    bottom: 10px;
+    right: 10px;
+  }
+}
+
+.wallpaper-btn {
+  position: fixed;
+  bottom: 20px;
+  right: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.7);
+  color: white;
+  width: 40px;
+  height: 40px;
+  border-radius: 6px;
+  z-index: 100;
+  cursor: pointer;
+  border: none;
+  transition: all 0.3s ease;
+}
+
+.wallpaper-btn:hover {
+  background-color: rgba(0, 0, 0, 0.9);
+}
+
+@media (max-width: 768px) {
+  .wallpaper-btn {
+    bottom: 10px;
+    right: 60px;
+  }
+}
