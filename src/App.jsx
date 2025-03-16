@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef, useCallback } from "react";
 import "./App.css";
 import { Settings, RefreshCw, Maximize, Minimize, Upload } from "lucide-react";
 
@@ -157,6 +157,8 @@ function App() {
       const img = new Image();
       img.src = url;
     });
+    // We only want this to run once on mount, despite the dependencies.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   // Add this effect to handle the beforeunload event
@@ -182,7 +184,7 @@ function App() {
   const [isFullscreen, setIsFullscreen] = useState(false);
 
   // Handle fullscreen toggle
-  const toggleFullscreen = () => {
+  const toggleFullscreen = useCallback(() => {
     if (!document.fullscreenElement) {
       document.documentElement
         .requestFullscreen()
@@ -208,7 +210,7 @@ function App() {
           });
       }
     }
-  };
+  }, []);
 
   // Listen for fullscreen change events
   useEffect(() => {
@@ -265,7 +267,7 @@ function App() {
         <div className="timer-display">{formatTime(timeLeft)}</div>
 
         <div className="action-controls">
-          <button className="primary-btn" onClick={toggleTimer}>
+          <button className="primary-btn" onClick={toggleTimer} autoFocus ref={(startBtn) => startBtn && startBtn.focus()}>
             {isRunning ? "pause" : "start"}
           </button>
           <button className="icon-btn" onClick={resetTimer}>
