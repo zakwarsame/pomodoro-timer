@@ -57,7 +57,7 @@ function App() {
       // Apply the custom wallpaper
       document.documentElement.style.setProperty(
         "--background-image",
-        `url('${fileUrl}')`
+        `url('${fileUrl}')`,
       );
 
       // Reset the file input
@@ -81,20 +81,24 @@ function App() {
     if (!customWallpaper) {
       document.documentElement.style.setProperty(
         "--background-image",
-        `url('${wallpapers[mode]}')`
+        `url('${wallpapers[mode]}')`,
       );
     }
 
     // Always update the gradient
     document.documentElement.style.setProperty(
       "--overlay-gradient",
-      gradients[mode]
+      gradients[mode],
     );
   };
 
   // Start/Pause timer
   const toggleTimer = () => {
     setIsRunning(!isRunning);
+
+    if (!isRunning && timeLeft === 0) {
+      setTimeLeft(timerDurations[timerMode]);
+    }
   };
 
   // Reset timer
@@ -145,11 +149,11 @@ function App() {
   useEffect(() => {
     document.documentElement.style.setProperty(
       "--background-image",
-      `url('${wallpapers[timerMode]}')`
+      `url('${wallpapers[timerMode]}')`,
     );
     document.documentElement.style.setProperty(
       "--overlay-gradient",
-      gradients[timerMode]
+      gradients[timerMode],
     );
 
     // Preload all background images
@@ -193,7 +197,7 @@ function App() {
         })
         .catch((err) => {
           console.error(
-            `Error attempting to enable fullscreen: ${err.message}`
+            `Error attempting to enable fullscreen: ${err.message}`,
           );
         });
     } else {
@@ -205,7 +209,7 @@ function App() {
           })
           .catch((err) => {
             console.error(
-              `Error attempting to exit fullscreen: ${err.message}`
+              `Error attempting to exit fullscreen: ${err.message}`,
             );
           });
       }
@@ -267,7 +271,12 @@ function App() {
         <div className="timer-display">{formatTime(timeLeft)}</div>
 
         <div className="action-controls">
-          <button className="primary-btn" onClick={toggleTimer} autoFocus ref={(startBtn) => startBtn && startBtn.focus()}>
+          <button
+            className="primary-btn"
+            onClick={toggleTimer}
+            autoFocus
+            ref={(startBtn) => startBtn && startBtn.focus()}
+          >
             {isRunning ? "pause" : "start"}
           </button>
           <button className="icon-btn" onClick={resetTimer}>
